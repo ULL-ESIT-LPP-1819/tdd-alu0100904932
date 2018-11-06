@@ -20,4 +20,14 @@ class InformacionNutricional
     def valorEnergeticoKcal
         (@grasas * 9) + (@hidratos * 4) + (@proteinas * 4)
     end
+    
+    def to_s
+        "Nombre: #{@nombre}\n" +
+        "Grasas: #{@grasas}\n" +
+        "Grasas saturadas: #{@grasasSat}\n" +
+        "Hidratos: #{@hidratos}\n" +
+        "Azucares:  #{@azucares}\n" +
+        "Proteinas: #{@proteinas}\n" +
+        "Sal: #{@sal}"
+    end
 end
