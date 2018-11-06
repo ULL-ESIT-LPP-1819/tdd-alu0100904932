@@ -40,4 +40,16 @@ RSpec.describe Prct06 do
     end
   end
   
+  describe "Formato de la informacion" do
+    it "Se muestra la informacion de forma correcta" do
+      expect(@alimento1.to_s).to eq("Nombre: #{@alimento1.nombre}\n" +
+                                    "Grasas: #{@alimento1.grasas}\n" +
+                                    "Grasas saturadas: #{@alimento1.grasasSat}\n" +
+                                    "Hidratos: #{@alimento1.hidratos}\n" +
+                                    "Azucares:  #{@alimento1.azucares}\n" +
+                                    "Proteinas: #{@alimento1.proteinas}\n" +
+                                    "Sal: #{@alimento1.sal}")
+    end
+  end
+  
 end
