@@ -6,12 +6,11 @@ require "prct06/version"
 Gem::Specification.new do |spec|
   spec.name          = "prct06"
   spec.version       = Prct06::VERSION
-  spec.authors       = ["Jesus"]
+  spec.authors       = ["Jesús Ramos Álvarez"]
   spec.email         = ["alu0100904932@ull.edu.es"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Práctica 6 LPP"
+  spec.homepage      = "https://github.com/ULL-ESIT-LPP-1819/tdd-alu0100904932"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
