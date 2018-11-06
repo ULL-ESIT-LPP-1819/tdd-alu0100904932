@@ -12,4 +12,12 @@ class InformacionNutricional
         @proteinas = proteinas
         @sal = sal
     end
+    
+    def valorEnergeticoKJ
+        (@grasas * 37) + (@hidratos * 17) + (@proteinas * 17)
+    end
+    
+    def valorEnergeticoKcal
+        (@grasas * 9) + (@hidratos * 4) + (@proteinas * 4)
+    end
 end
