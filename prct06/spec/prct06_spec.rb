@@ -26,7 +26,7 @@ RSpec.describe Prct06 do
     it "Se almacena y se accede correctamente al atributo proteinas" do
       expect(@alimento1.proteinas).to eq(50)
     end
-    it "Se almacena y se accede correctamente al atributo nombre" do
+    it "Se almacena y se accede correctamente al atributo sal" do
       expect(@alimento1.sal).to eq(60)
     end
   end
