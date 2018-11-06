@@ -30,4 +30,14 @@ RSpec.describe Prct06 do
       expect(@alimento1.sal).to eq(60)
     end
   end
+  
+  describe "Calculo del valor energetico" do
+    it "Se calcula el valor energetico en KJ correctamente" do
+      expect(@alimento1.valorEnergeticoKJ).to eq(1730)
+    end
+    it "Se calcula el valor energetico en kcal correctamente" do
+      expect(@alimento1.valorEnergeticoKcal).to eq(410)
+    end
+  end
+  
 end
