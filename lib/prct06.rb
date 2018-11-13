@@ -77,14 +77,4 @@ class ListaDE
             nodo = nodo.next
         end
     end
-    
-    def to_s
-        nodo = @tail
-        s = ""
-        while nodo
-            s += nodo.to_s + " "
-            nodo = nodo.next
-        end
-        s
-    end
 end
