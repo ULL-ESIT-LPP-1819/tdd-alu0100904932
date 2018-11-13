@@ -31,3 +31,13 @@ class InformacionNutricional
         "Sal: #{@sal}"
     end
 end
+
+class Node < Struct.new(:value, :next, :prev)
+    include Comparable
+    def <=> (another)
+        self.value.nombre <=> another.value.nombre
+    end
+    def to_s
+        self.value.nombre
+    end
+end
