@@ -76,4 +76,14 @@ RSpec.describe Prct06 do
     end
   end
   
+  class ListaDE
+    include Enumerable
+    attr_reader :head, :tail
+    
+    def initialize(nodo)
+        @head = nodo
+        @tail = nodo
+    end
+  end
+  
 end
