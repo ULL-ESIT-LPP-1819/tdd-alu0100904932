@@ -41,7 +41,7 @@ RSpec.describe Prct06 do
       expect(@alimento1.proteinas).to eq(50)
     end
     it "Se almacena y se accede correctamente al atributo sal" do
-      expect(@alimento1.sal).to eq(60)
+      expect(@alimento1.sal).to eq(10)
     end
   end
   
@@ -68,44 +68,11 @@ RSpec.describe Prct06 do
   
   # Pruebas para la lista doblemente enlazada
   describe "Lista doblemente enlazada ordenando sus elementos con los modulos Comparable y Enumerable" do
-    it "Los elementos se ordenan por su nombre" do
-      expect(@lista.sort).to eq([@nodo1, @nodo2, @nodo3, @nodo4, @nodo5])
-    end
     it "Los elementos se ordenan por su sal" do
-      expect(@lista.sort_by { |nodo| nodo.value.sal }).to eq([@nodo3, @nodo1, @nodo4, @nodo2, @nodo5])
+      expect(@lista.sort).to eq([@nodo3, @nodo1, @nodo4, @nodo2, @nodo5])
+    end
+    it "Los elementos se ordenan por su nombre" do
+      expect(@lista.sort_by { |nodo| nodo.value.nombre }).to eq([@nodo1, @nodo2, @nodo3, @nodo4, @nodo5])
     end
   end
-  
-  class ListaDE
-    include Enumerable
-    attr_reader :head, :tail
-    
-    def initialize(nodo)
-        @head = nodo
-        @tail = nodo
-    end
-    
-    def insertarHead(nodo)
-        @head.next = nodo
-        nodo.prev = @head
-        @head = nodo
-    end
-    
-    def insertarTail(nodo)
-        @tail.prev = nodo
-        nodo.next = @tail
-        @tail = nodo
-    end
-    
-    def extraerHead ()
-        @head = @head.prev
-        @head.next = nil
-    end
-    
-    def extraerTail()
-        @tail = @tail.next
-        @tail.prev = nil
-    end
-  end
-  
 end

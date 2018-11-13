@@ -35,9 +35,59 @@ end
 class Node < Struct.new(:value, :next, :prev)
     include Comparable
     def <=> (another)
-        self.value.nombre <=> another.value.nombre
+        self.value.sal <=> another.value.sal
     end
     def to_s
         self.value.nombre
+    end
+end
+
+class ListaDE
+    include Enumerable
+    attr_reader :head, :tail
+    
+    def initialize(nodo)
+        @head = nodo
+        @tail = nodo
+    end
+    
+    def insertarHead(nodo)
+        @head.next = nodo
+        nodo.prev = @head
+        @head = nodo
+    end
+    
+    def insertarTail(nodo)
+        @tail.prev = nodo
+        nodo.next = @tail
+        @tail = nodo
+    end
+    
+    def extraerHead ()
+        @head = @head.prev
+        @head.next = nil
+    end
+    
+    def extraerTail()
+        @tail = @tail.next
+        @tail.prev = nil
+    end
+    
+    def each
+        nodo=@tail
+        while nodo
+            yield nodo
+            nodo = nodo.next
+        end
+    end
+    
+    def to_s
+        nodo = @tail
+        s = ""
+        while nodo
+            s += nodo.to_s + " "
+            nodo = nodo.next
+        end
+        s
     end
 end
