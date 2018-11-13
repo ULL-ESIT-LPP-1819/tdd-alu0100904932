@@ -9,7 +9,8 @@ RSpec.describe Prct06 do
     @alimento3 = InformacionNutricional.new("Alimento 3", 10, 20, 30, 40, 50, 5)
     @alimento4 = InformacionNutricional.new("Alimento 4", 10, 20, 30, 40, 50, 15)
     @alimento5 = InformacionNutricional.new("Alimento 5", 10, 20, 30, 40, 50, 50)
-    @lista = ListaDE.new(@alimento1)
+    @lista = ListaDE.new()
+    @lista.insertarHead(@alimento1)
     @lista.insertarHead(@alimento2)
     @lista.insertarHead(@alimento3)
     @lista.insertarHead(@alimento4)
@@ -68,6 +69,40 @@ RSpec.describe Prct06 do
     end
     it "Los elementos se ordenan por su nombre" do
       expect(@lista.sort_by { |nodo| nodo.nombre }).to eq([@alimento1, @alimento2, @alimento3, @alimento4, @alimento5])
+    end
+    it "Se extrae elemento de head" do
+      expect(@lista.extraerHead.value).to eq(@alimento5)
+    end
+    it "Se extrae elemento de tail" do
+      expect(@lista.extraerTail.value).to eq(@alimento1)
+    end
+    it "Se extrae elemento de head" do
+      expect(@lista.extraerHead.value).to eq(@alimento4)
+    end
+    it "Se extrae elemento de tail" do
+      expect(@lista.extraerTail.value).to eq(@alimento2)
+    end
+    it "Se extrae elemento de head" do
+      expect(@lista.extraerHead.value).to eq(@alimento3)
+    end
+    it "La lista está vacía" do
+      expect(@lista.head).to eq(nil)
+      expect(@lista.tail).to eq(nil)
+    end
+    it "Se le añade el alimento 1 a una lista vacía" do
+      @lista.insertarHead(@alimento1)
+      expect(@lista.head.value).to eq(@alimento1)
+      expect(@lista.tail.value).to eq(@alimento1)
+    end
+    it "Se añade el alimento 2 por tail" do
+      @lista.insertarTail(@alimento2)
+      expect(@lista.head.value).to eq(@alimento1)
+      expect(@lista.tail.value).to eq(@alimento2)
+    end
+    it "Se añade el alimento 3 por head" do
+      @lista.insertarHead(@alimento3)
+      expect(@lista.head.value).to eq(@alimento3)
+      expect(@lista.tail.value).to eq(@alimento2)
     end
   end
 end

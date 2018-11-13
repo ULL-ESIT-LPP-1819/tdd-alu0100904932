@@ -43,34 +43,57 @@ class ListaDE
     include Enumerable
     attr_reader :head, :tail
     
-    def initialize(value)
-        nodo = Node.new(value)
-        @head = nodo
-        @tail = nodo
+    def initialize()
+        @head = nil
+        @tail = nil
     end
     
     def insertarHead(value)
         nodo = Node.new(value)
-        @head.next = nodo
-        nodo.prev = @head
-        @head = nodo
+        if @head == nil and @tail == nil
+            @head = nodo
+            @tail = nodo
+        else
+            @head.next = nodo
+            nodo.prev = @head
+            @head = nodo
+        end
     end
     
     def insertarTail(value)
         nodo = Node.new(value)
-        @tail.prev = nodo
-        nodo.next = @tail
-        @tail = nodo
+        if @head == nil and @tail == nil
+            @head = nodo
+            @tail = nodo
+        else
+            @tail.prev = nodo
+            nodo.next = @tail
+            @tail = nodo
+        end
     end
     
     def extraerHead ()
-        @head = @head.prev
-        @head.next = nil
+        extraer = @head
+        headActual = @head.prev
+        @head = headActual
+        if headActual == nil
+            @tail = nil
+        else
+            @head.next = nil
+        end
+        return extraer
     end
     
     def extraerTail()
-        @tail = @tail.next
-        @tail.prev = nil
+        extraer = @tail
+        tailActual = @tail.next
+        @tail = tailActual
+        if tailActual == nil
+            @head = nil
+        else
+            @tail.prev = nil
+        end
+        return extraer
     end
     
     def each
