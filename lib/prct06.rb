@@ -1,6 +1,7 @@
 require "prct06/version"
 
 class InformacionNutricional
+    include Comparable
     attr_reader :nombre, :grasas, :grasasSat, :hidratos, :azucares, :proteinas, :sal
     
     def initialize (nombre, grasas, grasasSat, hidratos, azucares, proteinas, sal)
@@ -30,17 +31,13 @@ class InformacionNutricional
         "Proteinas: #{@proteinas}\n" +
         "Sal: #{@sal}"
     end
+    
+    def <=> (another)
+        self.sal <=> another.sal
+    end
 end
 
-class Node < Struct.new(:value, :next, :prev)
-    include Comparable
-    def <=> (another)
-        self.value.sal <=> another.value.sal
-    end
-    def to_s
-        self.value.nombre
-    end
-end
+Node = Struct.new(:value, :next, :prev)
 
 class ListaDE
     include Enumerable
@@ -75,8 +72,8 @@ class ListaDE
     
     def each
         nodo=@tail
-        while nodo
-            yield nodo
+        while nodo != nil
+            yield nodo.value
             nodo = nodo.next
         end
     end

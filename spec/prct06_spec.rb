@@ -69,10 +69,10 @@ RSpec.describe Prct06 do
   # Pruebas para la lista doblemente enlazada
   describe "Lista doblemente enlazada ordenando sus elementos con los modulos Comparable y Enumerable" do
     it "Los elementos se ordenan por su sal" do
-      expect(@lista.sort).to eq([@nodo3, @nodo1, @nodo4, @nodo2, @nodo5])
+      expect(@lista.sort).to eq([@nodo3.value, @nodo1.value, @nodo4.value, @nodo2.value, @nodo5.value])
     end
     it "Los elementos se ordenan por su nombre" do
-      expect(@lista.sort_by { |nodo| nodo.value.nombre }).to eq([@nodo1, @nodo2, @nodo3, @nodo4, @nodo5])
+      expect(@lista.sort_by { |nodo| nodo.nombre }).to eq([@nodo1.value, @nodo2.value, @nodo3.value, @nodo4.value, @nodo5.value])
     end
   end
 end
