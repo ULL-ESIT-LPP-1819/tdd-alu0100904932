@@ -43,18 +43,21 @@ class ListaDE
     include Enumerable
     attr_reader :head, :tail
     
-    def initialize(nodo)
+    def initialize(value)
+        nodo = Node.new(value)
         @head = nodo
         @tail = nodo
     end
     
-    def insertarHead(nodo)
+    def insertarHead(value)
+        nodo = Node.new(value)
         @head.next = nodo
         nodo.prev = @head
         @head = nodo
     end
     
-    def insertarTail(nodo)
+    def insertarTail(value)
+        nodo = Node.new(value)
         @tail.prev = nodo
         nodo.next = @tail
         @tail = nodo

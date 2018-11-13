@@ -9,16 +9,11 @@ RSpec.describe Prct06 do
     @alimento3 = InformacionNutricional.new("Alimento 3", 10, 20, 30, 40, 50, 5)
     @alimento4 = InformacionNutricional.new("Alimento 4", 10, 20, 30, 40, 50, 15)
     @alimento5 = InformacionNutricional.new("Alimento 5", 10, 20, 30, 40, 50, 50)
-    @nodo1 = Node.new(@alimento1)
-    @nodo2 = Node.new(@alimento2)
-    @nodo3 = Node.new(@alimento3)
-    @nodo4 = Node.new(@alimento4)
-    @nodo5 = Node.new(@alimento5)
-    @lista = ListaDE.new(@nodo1)
-    @lista.insertarHead(@nodo2)
-    @lista.insertarHead(@nodo3)
-    @lista.insertarHead(@nodo4)
-    @lista.insertarHead(@nodo5)
+    @lista = ListaDE.new(@alimento1)
+    @lista.insertarHead(@alimento2)
+    @lista.insertarHead(@alimento3)
+    @lista.insertarHead(@alimento4)
+    @lista.insertarHead(@alimento5)
   end
 
   describe "El alimento se inicializa correctamente y se puede acceder a sus atributos" do
@@ -69,10 +64,10 @@ RSpec.describe Prct06 do
   # Pruebas para la lista doblemente enlazada
   describe "Lista doblemente enlazada ordenando sus elementos con los modulos Comparable y Enumerable" do
     it "Los elementos se ordenan por su sal" do
-      expect(@lista.sort).to eq([@nodo3.value, @nodo1.value, @nodo4.value, @nodo2.value, @nodo5.value])
+      expect(@lista.sort).to eq([@alimento3, @alimento1, @alimento4, @alimento2, @alimento5])
     end
     it "Los elementos se ordenan por su nombre" do
-      expect(@lista.sort_by { |nodo| nodo.nombre }).to eq([@nodo1.value, @nodo2.value, @nodo3.value, @nodo4.value, @nodo5.value])
+      expect(@lista.sort_by { |nodo| nodo.nombre }).to eq([@alimento1, @alimento2, @alimento3, @alimento4, @alimento5])
     end
   end
 end
