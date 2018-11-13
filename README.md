@@ -10,8 +10,8 @@
 
 ## POO. Listas
 
-- [ ] Crear una lista doblemente enlazada para los alimentos
-- [ ] Ordenar elementos según la sal
+- [x] Crear una lista doblemente enlazada para los alimentos
+- [x] Ordenar elementos según la sal
 - [x] Realizar pruebas con rspec
 
 Autor: Jesús Ramos Álvarez
