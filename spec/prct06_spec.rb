@@ -84,6 +84,28 @@ RSpec.describe Prct06 do
         @head = nodo
         @tail = nodo
     end
+    
+    def insertarHead(nodo)
+        @head.next = nodo
+        nodo.prev = @head
+        @head = nodo
+    end
+    
+    def insertarTail(nodo)
+        @tail.prev = nodo
+        nodo.next = @tail
+        @tail = nodo
+    end
+    
+    def extraerHead ()
+        @head = @head.prev
+        @head.next = nil
+    end
+    
+    def extraerTail()
+        @tail = @tail.next
+        @tail.prev = nil
+    end
   end
   
 end
