@@ -3,8 +3,22 @@ require 'lib/prct06'
 
 RSpec.describe Prct06 do
   
-  before :each do
-    @alimento1 = InformacionNutricional.new("Alimento 1", 10, 20, 30, 40, 50, 60)
+  before :all do
+    @alimento1 = InformacionNutricional.new("Alimento 1", 10, 20, 30, 40, 50, 10)
+    @alimento2 = InformacionNutricional.new("Alimento 2", 10, 20, 30, 40, 50, 20)
+    @alimento3 = InformacionNutricional.new("Alimento 3", 10, 20, 30, 40, 50, 5)
+    @alimento4 = InformacionNutricional.new("Alimento 4", 10, 20, 30, 40, 50, 15)
+    @alimento5 = InformacionNutricional.new("Alimento 5", 10, 20, 30, 40, 50, 50)
+    @nodo1 = Node.new(@alimento1)
+    @nodo2 = Node.new(@alimento2)
+    @nodo3 = Node.new(@alimento3)
+    @nodo4 = Node.new(@alimento4)
+    @nodo5 = Node.new(@alimento5)
+    @lista = ListaDE.new(@nodo1)
+    @lista.insertarHead(@nodo2)
+    @lista.insertarHead(@nodo3)
+    @lista.insertarHead(@nodo4)
+    @lista.insertarHead(@nodo5)
   end
 
   describe "El alimento se inicializa correctamente y se puede acceder a sus atributos" do
@@ -49,6 +63,16 @@ RSpec.describe Prct06 do
                                     "Azucares:  #{@alimento1.azucares}\n" +
                                     "Proteinas: #{@alimento1.proteinas}\n" +
                                     "Sal: #{@alimento1.sal}")
+    end
+  end
+  
+  # Pruebas para la lista doblemente enlazada
+  describe "Lista doblemente enlazada ordenando sus elementos con los modulos Comparable y Enumerable" do
+    it "Los elementos se ordenan por su nombre" do
+      expect(@lista.sort).to eq([@nodo1, @nodo2, @nodo3, @nodo4, @nodo5])
+    end
+    it "Los elementos se ordenan por su sal" do
+      expect(@lista.sort_by { |nodo| nodo.value.sal }).to eq([@nodo3, @nodo1, @nodo4, @nodo2, @nodo5])
     end
   end
   
