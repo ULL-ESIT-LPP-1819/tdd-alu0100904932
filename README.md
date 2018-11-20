@@ -21,6 +21,6 @@
 - [x] Crear jerarquía individuo-paciente
 - [x] Pruebas jerarquía
 - [x] Lista de pacientes y clasificación por imc
-- [ ] Guard
+- [x] Guard
 
 Autor: Jesús Ramos Álvarez
