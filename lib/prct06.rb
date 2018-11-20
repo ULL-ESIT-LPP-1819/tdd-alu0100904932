@@ -105,10 +105,8 @@ class ListaDE
     end
     
     def to_s
-        s = ""
         each do
-            |nodo| s += nodo.value + "\n"
+            |nodo| puts nodo
         end
-        s
     end
 end

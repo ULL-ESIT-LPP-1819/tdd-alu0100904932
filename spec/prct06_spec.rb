@@ -103,6 +103,7 @@ RSpec.describe Prct06 do
       @lista.insertarHead(@alimento3)
       expect(@lista.head.value).to eq(@alimento3)
       expect(@lista.tail.value).to eq(@alimento2)
+      @lista.to_s
     end
   end
 end
