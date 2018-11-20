@@ -12,6 +12,15 @@
 
 - [x] Crear una lista doblemente enlazada para los alimentos
 - [x] Ordenar elementos según la sal
-- [x] Realizar pruebas con rspec
+- [x] Realizar pruebas con rspec 
+
+# PRÁCTICA 8
+
+## POO. Herencia
+
+- [x] Crear jerarquía individuo-paciente
+- [x] Pruebas jerarquía
+- [x] Lista de pacientes y clasificación por imc
+- [ ] Guard
 
 Autor: Jesús Ramos Álvarez

@@ -1,5 +1,8 @@
 require "spec_helper"
-require 'lib/prct06'
+require 'prct06'
+require 'listaDE'
+require 'individuo'
+require 'DatosAntropometricos'
 
 RSpec.describe Prct06 do
   
@@ -81,7 +84,7 @@ RSpec.describe Prct06 do
                                     "Hidratos: #{@alimento1.hidratos}\n" +
                                     "Azucares:  #{@alimento1.azucares}\n" +
                                     "Proteinas: #{@alimento1.proteinas}\n" +
-                                    "Sal: #{@alimento1.sal}")
+                                    "Sal: #{@alimento1.sal}\n")
     end
   end
   
