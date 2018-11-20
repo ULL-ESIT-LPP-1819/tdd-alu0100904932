@@ -4,18 +4,41 @@ require 'lib/prct06'
 RSpec.describe Prct06 do
   
   before :all do
+    # Info Nutricional
     @alimento1 = InformacionNutricional.new("Alimento 1", 10, 20, 30, 40, 50, 10)
     @alimento2 = InformacionNutricional.new("Alimento 2", 10, 20, 30, 40, 50, 20)
     @alimento3 = InformacionNutricional.new("Alimento 3", 10, 20, 30, 40, 50, 5)
     @alimento4 = InformacionNutricional.new("Alimento 4", 10, 20, 30, 40, 50, 15)
     @alimento5 = InformacionNutricional.new("Alimento 5", 10, 20, 30, 40, 50, 50)
+    # Lista doblemente enlazada
     @lista = ListaDE.new()
     @lista.insertarHead(@alimento1)
     @lista.insertarHead(@alimento2)
     @lista.insertarHead(@alimento3)
     @lista.insertarHead(@alimento4)
     @lista.insertarHead(@alimento5)
+    # Pacientes y lista de pacientes
+    datosAntropometricos = DatosAntropometricos.new(95.0, 1.83, 1, 25, 85.0, 82.0)
+    @paciente1 = Paciente.new("paciente1", datosAntropometricos)
+    datosAntropometricos = DatosAntropometricos.new(60.0, 1.60, 0, 25, 65.0, 100.0)
+    @paciente2 = Paciente.new("paciente2", datosAntropometricos)
+    datosAntropometricos = DatosAntropometricos.new(89.0, 1.80, 1, 21, 80.0, 78.0)
+    @paciente3 = Paciente.new("paciente3", datosAntropometricos)
+    datosAntropometricos = DatosAntropometricos.new(70.0, 1.70, 0, 30, 70.0, 80.0)
+    @paciente4 = Paciente.new("paciente4", datosAntropometricos)
+    datosAntropometricos = DatosAntropometricos.new(110.0, 1.80, 1, 41, 95.0, 93.0)
+    @paciente5 = Paciente.new("paciente5", datosAntropometricos)
+    @listaPacientes = ListaDE.new();
+    @listaPacientes.insertarHead(@paciente1)
+    @listaPacientes.insertarHead(@paciente2)
+    @listaPacientes.insertarHead(@paciente3)
+    @listaPacientes.insertarHead(@paciente4)
+    @listaPacientes.insertarHead(@paciente5)
   end
+  
+  ################################################
+  # Pruebas practica 6 - Informacion nutricional #
+  ################################################
 
   describe "El alimento se inicializa correctamente y se puede acceder a sus atributos" do
     it "Se almacena y se accede correctamente al atributo nombre" do
@@ -62,7 +85,9 @@ RSpec.describe Prct06 do
     end
   end
   
-  # Pruebas para la lista doblemente enlazada
+  ##################################################
+  # Pruebas practica 7 - Lista doblemente enlazada #
+  ##################################################
   describe "Lista doblemente enlazada ordenando sus elementos con los modulos Comparable y Enumerable" do
     it "Los elementos se ordenan por su sal" do
       expect(@lista.sort).to eq([@alimento3, @alimento1, @alimento4, @alimento2, @alimento5])
@@ -103,7 +128,53 @@ RSpec.describe Prct06 do
       @lista.insertarHead(@alimento3)
       expect(@lista.head.value).to eq(@alimento3)
       expect(@lista.tail.value).to eq(@alimento2)
-      @lista.to_s
     end
   end
+  
+  #################################
+  # Pruebas practica 8 - Herencia #
+  #################################
+  describe "Pruebas de jerarquía" do
+    it "La clase del paciente es paciente" do
+      expect(@paciente1.class).to eq(Paciente)
+    end
+    it "La superclase del paciente es individuo" do
+      expect(@paciente1.class.superclass).to eq(Individuo)
+    end
+    it "El tipo del paciente es objeto" do
+      expect(@paciente1.is_a?Object).to eq(true)
+    end
+    it "El tipo del paciente es individuo" do
+      expect(@paciente1.is_a?Paciente).to eq(true)
+    end
+    it "El tipo del paciente es paciente" do
+      expect(@paciente1.is_a?Individuo).to eq(true)
+    end
+  end
+  
+  describe "Pruebas de la lista de pacientes" do
+    it "La lista de pacientes no esta vacia" do
+      expect(@listaPacientes.head).not_to eq(nil)
+      expect(@listaPacientes.tail).not_to eq(nil)
+    end
+    it "Los pacientes se ordenan por su imc" do
+      expect(@listaPacientes.sort).to eq([@paciente2, @paciente4, @paciente3, @paciente1, @paciente5])
+    end
+    it "El paciente 1 tiene sobrepeso" do
+      expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Sobrepeso")
+    end
+    it "El paciente 2 tiene peso adecuado" do
+      expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Adecuado")
+    end
+    it "El paciente 3 tiene sobrepeso" do
+      expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Sobrepeso")
+    end
+    it "El paciente 4 tiene peso adecuado" do
+      expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Adecuado")
+    end
+    it "El paciente 5 tiene obesidad" do
+      expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Obesidad")
+    end
+  end
+  
 end
