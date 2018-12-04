@@ -30,8 +30,8 @@
 - [x] Información nutricional comparable
 - [x] Pruebas comparadores información nutricional
 - [x] Valoración nutricional comparable
-- [ ] Pruebas comparadores valoración nutricional
-- [ ] Listas enumerables
+- [x] Pruebas comparadores valoración nutricional
+- [x] Listas enumerables
 - [ ] Pruebas lista información nutricional
 - [ ] Pruebas lista valoración nutricional
 - [ ] Documentación
