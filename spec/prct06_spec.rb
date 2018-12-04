@@ -231,4 +231,22 @@ RSpec.describe Prct06 do
     end
   end
   
+  describe "Pruebas enumerable listas de etiquetas de informacion nutricional" do
+    it "Sort" do
+      expect(@lista.sort).to eq([@alimento3, @alimento2, @alimento1])
+    end
+    it "Collect" do
+      expect(@lista.collect { |alimento| alimento.valorEnergeticoKcal}).to eq([340, 410, 178])
+    end
+    it "Select" do
+      expect(@lista.select { |alimento| alimento.valorEnergeticoKcal >= 200}).to eq([@alimento2, @alimento1])
+    end
+    it "Max" do
+      expect(@lista.max).to eq(@alimento1)
+    end
+    it "Min" do
+      expect(@lista.min).to eq(@alimento3)
+    end
+  end
+  
 end
