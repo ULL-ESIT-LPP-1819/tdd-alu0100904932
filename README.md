@@ -27,7 +27,7 @@
 
 ## POO. Módulos
 
-- [ ] Información nutricional comparable
+- [x] Información nutricional comparable
 - [ ] Pruebas comparadores información nutricional
 - [ ] Valoración nutricional comparable
 - [ ] Pruebas comparadores valoración nutricional

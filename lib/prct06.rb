@@ -33,6 +33,6 @@ class InformacionNutricional
     end
     
     def <=> (another)
-        self.sal <=> another.sal
+        self.valorEnergeticoKcal <=> another.valorEnergeticoKcal
     end
 end
