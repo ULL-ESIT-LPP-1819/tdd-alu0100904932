@@ -177,6 +177,11 @@ RSpec.describe Prct06 do
     end
     it "El paciente 5 tiene obesidad" do
       expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Obesidad")
+      @listaPacientes.insertarHead(@paciente1)
+      @listaPacientes.insertarHead(@paciente2)
+      @listaPacientes.insertarHead(@paciente3)
+      @listaPacientes.insertarHead(@paciente4)
+      @listaPacientes.insertarHead(@paciente5)
     end
   end
   
