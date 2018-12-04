@@ -9,9 +9,9 @@ RSpec.describe Prct06 do
   before :all do
     # Info Nutricional
     @alimento1 = InformacionNutricional.new("Alimento 1", 10, 20, 30, 40, 50, 10)
-    @alimento2 = InformacionNutricional.new("Alimento 2", 10, 20, 30, 40, 50, 20)
-    @alimento3 = InformacionNutricional.new("Alimento 3", 10, 20, 30, 40, 50, 5)
-    @alimento4 = InformacionNutricional.new("Alimento 4", 10, 20, 30, 40, 50, 15)
+    @alimento2 = InformacionNutricional.new("Alimento 2", 20, 10, 10, 20, 30, 20)
+    @alimento3 = InformacionNutricional.new("Alimento 3", 10, 2, 2, 10, 20, 5)
+    @alimento4 = InformacionNutricional.new("Alimento 4", 1, 30, 20, 10, 40, 15)
     @alimento5 = InformacionNutricional.new("Alimento 5", 10, 20, 30, 40, 50, 50)
     # Lista doblemente enlazada
     @lista = ListaDE.new()
@@ -93,7 +93,7 @@ RSpec.describe Prct06 do
   ##################################################
   describe "Lista doblemente enlazada ordenando sus elementos con los modulos Comparable y Enumerable" do
     it "Los elementos se ordenan por su sal" do
-      expect(@lista.sort).to eq([@alimento3, @alimento1, @alimento4, @alimento2, @alimento5])
+      expect(@lista.sort_by { |nodo| nodo.sal }).to eq([@alimento3, @alimento1, @alimento4, @alimento2, @alimento5])
     end
     it "Los elementos se ordenan por su nombre" do
       expect(@lista.sort_by { |nodo| nodo.nombre }).to eq([@alimento1, @alimento2, @alimento3, @alimento4, @alimento5])
@@ -177,6 +177,33 @@ RSpec.describe Prct06 do
     end
     it "El paciente 5 tiene obesidad" do
       expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Obesidad")
+    end
+  end
+  
+  ################################
+  # Pruebas practica 9 - Modulos #
+  ################################
+  describe "Pruebas comparar la informacion nutricional, por sus kcal" do
+    it "kcal alimento 1 > kcal alimento 4" do
+      expect(@alimento1 > @alimento4).to eq (true)
+    end
+    it "kcal alimento 1 >= kcal alimento 4" do
+      expect(@alimento1 >= @alimento4).to eq (true)
+    end
+    it "kcal alimento 4 < kcal alimento 1" do
+      expect(@alimento4 < @alimento1).to eq (true)
+    end
+    it "kcal alimento 4 <= kcal alimento 1" do
+      expect(@alimento4 <= @alimento1).to eq (true)
+    end
+    it "kcal alimento 1 != kcal alimento 4" do
+      expect(@alimento1 != @alimento4).to eq (true)
+    end
+    it "kcal alimento 1 == kcal alimento 4 - falso" do
+      expect(@alimento1 == @alimento4).to eq (false)
+    end
+    it "kcal alimento 2 entre las del alimento 4 y 1" do
+      expect(@alimento2.between?(@alimento4,@alimento1)).to eq (true)
     end
   end
   
