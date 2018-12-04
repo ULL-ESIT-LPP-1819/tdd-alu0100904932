@@ -249,4 +249,22 @@ RSpec.describe Prct06 do
     end
   end
   
+  describe "Pruebas enumerable listas de valoraciones nutricionales de individuos" do
+    it "Sort" do
+      expect(@listaPacientes.sort).to eq([@paciente2, @paciente4, @paciente3, @paciente1, @paciente5])
+    end
+    it "Collect" do
+      expect(@listaPacientes.collect { |paciente| paciente.datosAntropometricos.imcPopular}).to eq(["Sobrepeso", "Adecuado", "Sobrepeso", "Adecuado", "Obesidad"])
+    end
+    it "Select" do
+      expect(@listaPacientes.select { |paciente| paciente.datosAntropometricos.imcPopular == "Sobrepeso"}).to eq([@paciente1, @paciente3])
+    end
+    it "Max" do
+      expect(@listaPacientes.max).to eq(@paciente5)
+    end
+    it "Min" do
+      expect(@listaPacientes.min).to eq(@paciente2)
+    end
+  end
+  
 end

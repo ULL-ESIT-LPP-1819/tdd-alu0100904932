@@ -33,7 +33,7 @@
 - [x] Pruebas comparadores valoración nutricional
 - [x] Listas enumerables
 - [x] Pruebas lista información nutricional
-- [ ] Pruebas lista valoración nutricional
+- [x] Pruebas lista valoración nutricional
 - [ ] Documentación
 
 Autor: Jesús Ramos Álvarez
