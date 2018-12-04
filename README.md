@@ -23,4 +23,17 @@
 - [x] Lista de pacientes y clasificación por imc
 - [x] Guard
 
+# PRÁCTICA 9
+
+## POO. Módulos
+
+- [ ] Información nutricional comparable
+- [ ] Pruebas comparadores información nutricional
+- [ ] Valoración nutricional comparable
+- [ ] Pruebas comparadores valoración nutricional
+- [ ] Listas enumerables
+- [ ] Pruebas lista información nutricional
+- [ ] Pruebas lista valoración nutricional
+- [ ] Documentación
+
 Autor: Jesús Ramos Álvarez
