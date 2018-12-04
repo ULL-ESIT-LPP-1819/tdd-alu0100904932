@@ -34,6 +34,6 @@
 - [x] Listas enumerables
 - [x] Pruebas lista información nutricional
 - [x] Pruebas lista valoración nutricional
-- [ ] Documentación
+- [x] Documentación
 
 Autor: Jesús Ramos Álvarez
