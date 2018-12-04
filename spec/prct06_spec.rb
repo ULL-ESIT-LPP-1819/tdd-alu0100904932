@@ -207,4 +207,28 @@ RSpec.describe Prct06 do
     end
   end
   
+  describe "Pruebas comparar la valoracion nutricional, por su imc" do
+    it "imc paciente 1 > imc paciente 2" do
+      expect(@paciente1 > @paciente2).to eq (true)
+    end
+    it "imc paciente 1 >= imc paciente 2" do
+      expect(@paciente1 >= @paciente2).to eq (true)
+    end
+    it "imc paciente 2 < imc paciente 1" do
+      expect(@paciente2 < @paciente1).to eq (true)
+    end
+    it "imc paciente 2 <= imc paciente 1" do
+      expect(@paciente2 <= @paciente1).to eq (true)
+    end
+    it "imc paciente 1 != imc paciente 2" do
+      expect(@paciente1 != @paciente2).to eq (true)
+    end
+    it "imc paciente 1 == imc paciente 2 - false" do
+      expect(@paciente1 == @paciente2).to eq (false)
+    end
+    it "imc paciente 3 entre las del paciente 2 y 1" do
+      expect(@paciente3.between?(@paciente2, @paciente1)).to eq (true)
+    end
+  end
+  
 end
