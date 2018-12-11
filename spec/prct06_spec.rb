@@ -22,15 +22,15 @@ RSpec.describe Prct06 do
     @lista.insertarHead(@alimento5)
     # Pacientes y lista de pacientes
     datosAntropometricos = DatosAntropometricos.new(95.0, 1.83, 1, 25, 85.0, 82.0)
-    @paciente1 = Paciente.new("paciente1", datosAntropometricos)
+    @paciente1 = Paciente.new("paciente1", datosAntropometricos, "ligera")
     datosAntropometricos = DatosAntropometricos.new(60.0, 1.60, 0, 25, 65.0, 100.0)
-    @paciente2 = Paciente.new("paciente2", datosAntropometricos)
+    @paciente2 = Paciente.new("paciente2", datosAntropometricos, "reposo")
     datosAntropometricos = DatosAntropometricos.new(89.0, 1.80, 1, 21, 80.0, 78.0)
-    @paciente3 = Paciente.new("paciente3", datosAntropometricos)
+    @paciente3 = Paciente.new("paciente3", datosAntropometricos, "moderada")
     datosAntropometricos = DatosAntropometricos.new(70.0, 1.70, 0, 30, 70.0, 80.0)
-    @paciente4 = Paciente.new("paciente4", datosAntropometricos)
+    @paciente4 = Paciente.new("paciente4", datosAntropometricos, "intensa")
     datosAntropometricos = DatosAntropometricos.new(110.0, 1.80, 1, 41, 95.0, 93.0)
-    @paciente5 = Paciente.new("paciente5", datosAntropometricos)
+    @paciente5 = Paciente.new("paciente5", datosAntropometricos, "moderada")
     @listaPacientes = ListaDE.new();
     @listaPacientes.insertarHead(@paciente1)
     @listaPacientes.insertarHead(@paciente2)
@@ -269,6 +269,16 @@ RSpec.describe Prct06 do
     end
     it "Min" do
       expect(@listaPacientes.min).to eq(@paciente2)
+    end
+  end
+  
+  ###############################################
+  # Pruebas practica 10 - Programacion Funcionl #
+  ###############################################
+  
+  describe "Pruebas nuevo metodo clase Paciente" do
+    it "Calculo del gasto energetico total de un paciente" do
+      expect(@paciente1.gastoEnergeticoTotal()).to eq(2407.975)
     end
   end
   
