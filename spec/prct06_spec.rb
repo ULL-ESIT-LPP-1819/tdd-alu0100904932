@@ -11,13 +11,15 @@ RSpec.describe Prct06 do
     @alimento1 = InformacionNutricional.new("Alimento 1", 10, 20, 30, 40, 50, 10) # Desayuno
     @alimento2 = InformacionNutricional.new("Alimento 2", 20, 10, 10, 20, 30, 20) # Desayuno
     @alimento3 = InformacionNutricional.new("Alimento 3", 10, 2, 2, 10, 20, 5) # Desayuno
-    @alimento4 = InformacionNutricional.new("Alimento 4", 1, 30, 20, 10, 40, 15) # Almuerzo
+    @alimento4 = InformacionNutricional.new("Alimento 4", 1, 30, 20, 10, 40, 15) # Desayuno
     @alimento5 = InformacionNutricional.new("Alimento 5", 3, 2, 3, 5, 5, 1) # Almuerzo
     @alimento6 = InformacionNutricional.new("Alimento 6", 10, 8, 5, 3, 30, 10) # Almuerzo
     @alimento7 = InformacionNutricional.new("Alimento 7", 20, 10, 15, 10, 50, 30) # Almuerzo
-    @alimento8 = InformacionNutricional.new("Alimento 8", 10, 3, 10, 6, 20, 3) # Cena
+    @alimento8 = InformacionNutricional.new("Alimento 8", 10, 3, 10, 6, 20, 3) # Almuerzo
     @alimento9 = InformacionNutricional.new("Alimento 9", 10, 5, 5, 2, 15, 2) # Cena
-    @alimento10 = InformacionNutricional.new("Alimento 10", 5, 2, 3, 1, 3, 1) # Cena
+    @alimento10 = InformacionNutricional.new("Alimento 10", 20, 10, 20, 15, 40, 10) # Cena
+    @alimento11 = InformacionNutricional.new("Alimento 11", 5, 2, 3, 1, 20, 5) # Cena
+    @alimento12 = InformacionNutricional.new("Alimento 12", 8, 5, 3, 2, 10, 3) # Cena
     # Lista doblemente enlazada
     @lista = ListaDE.new()
     @lista.insertarHead(@alimento1)
@@ -27,15 +29,15 @@ RSpec.describe Prct06 do
     @lista.insertarHead(@alimento5)
     # Pacientes y lista de pacientes
     datosAntropometricos = DatosAntropometricos.new(95.0, 1.83, 1, 25, 85.0, 82.0)
-    @paciente1 = Paciente.new("paciente1", datosAntropometricos, "ligera")
+    @paciente1 = Paciente.new("paciente1", datosAntropometricos, "moderada")
     datosAntropometricos = DatosAntropometricos.new(60.0, 1.60, 0, 25, 65.0, 100.0)
-    @paciente2 = Paciente.new("paciente2", datosAntropometricos, "reposo")
+    @paciente2 = Paciente.new("paciente2", datosAntropometricos, "ligera")
     datosAntropometricos = DatosAntropometricos.new(89.0, 1.80, 1, 21, 80.0, 78.0)
-    @paciente3 = Paciente.new("paciente3", datosAntropometricos, "moderada")
+    @paciente3 = Paciente.new("paciente3", datosAntropometricos, "intensa")
     datosAntropometricos = DatosAntropometricos.new(70.0, 1.70, 0, 30, 70.0, 80.0)
-    @paciente4 = Paciente.new("paciente4", datosAntropometricos, "intensa")
+    @paciente4 = Paciente.new("paciente4", datosAntropometricos, "moderada")
     datosAntropometricos = DatosAntropometricos.new(110.0, 1.80, 1, 41, 95.0, 93.0)
-    @paciente5 = Paciente.new("paciente5", datosAntropometricos, "moderada")
+    @paciente5 = Paciente.new("paciente5", datosAntropometricos, "ligera")
     @listaPacientes = ListaDE.new();
     @listaPacientes.insertarHead(@paciente1)
     @listaPacientes.insertarHead(@paciente2)
@@ -43,12 +45,12 @@ RSpec.describe Prct06 do
     @listaPacientes.insertarHead(@paciente4)
     @listaPacientes.insertarHead(@paciente5)
     # Arrays de menus y pacientes
-    # Array menu = [[Desayuno], [Almuerzo], [Cena]]
-    @arrayMenu1 = [[@alimento1, @alimento3],[@alimento4, @alimento5],[@alimento8, @alimento9]]
-    @arrayMenu2 = [[@alimento1, @alimento2],[@alimento4, @alimento6],[@alimento8, @alimento10]]
-    @arrayMenu3 = [[@alimento2, @alimento3],[@alimento4, @alimento7],[@alimento9, @alimento10]]
-    @arrayMenu4 = [[@alimento1, @alimento2],[@alimento5, @alimento6],[@alimento9, @alimento10]]
-    @arrayMenu5 = [[@alimento1, @alimento3],[@alimento5, @alimento7],[@alimento8, @alimento10]]
+    # Alimentos: 1-4 Desayuno, 5-8 Almuerzo, 9-12 Cena
+    @arrayMenu1 = [@alimento1, @alimento2, @alimento3, @alimento5, @alimento6, @alimento8, @alimento9]
+    @arrayMenu2 = [@alimento1, @alimento2, @alimento4, @alimento6, @alimento7, @alimento8, @alimento10, @alimento11]
+    @arrayMenu3 = [@alimento1, @alimento2, @alimento3, @alimento4, @alimento5, @alimento6, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
+    @arrayMenu4 = [@alimento2, @alimento3, @alimento4, @alimento5, @alimento7, @alimento8, @alimento9, @alimento12]
+    @arrayMenu5 = [@alimento1, @alimento3, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
     @arrayPacientes = [@paciente1, @paciente2, @paciente3, @paciente4, @paciente5]
   end
   
@@ -290,9 +292,76 @@ RSpec.describe Prct06 do
   ###############################################
   
   describe "Pruebas nuevo metodo clase Paciente" do
-    it "Calculo del gasto energetico total de un paciente" do
-      expect(@paciente1.gastoEnergeticoTotal()).to eq(2407.975)
+    it "Calculo del gasto energetico total del paciente 1" do
+      expect(@paciente1.gastoEnergeticoTotal()).to eq(2704.04)
+    end
+    it "Calculo del gasto energetico total del paciente 2" do
+      expect(@paciente2.gastoEnergeticoTotal()).to eq(1603.08)
+    end
+    it "Calculo del gasto energetico total del paciente 3" do
+      expect(@paciente3.gastoEnergeticoTotal()).to eq(3140.6)
+    end
+    it "Calculo del gasto energetico total del paciente 4" do
+      expect(@paciente4.gastoEnergeticoTotal()).to eq(1988.56)
+    end
+    it "Calculo del gasto energetico total del paciente 5" do
+      expect(@paciente5.gastoEnergeticoTotal()).to eq(2470.5)
     end
   end
   
+  describe "Pruebas calculo aporte energetico de los menus" do
+    it "Aporte energetico menu 1" do
+      expect((@arrayMenu1.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)).to eq(1597)
+    end
+    it "Aporte energetico menu 2" do
+      expect((@arrayMenu2.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)).to eq(2436)
+    end
+    it "Aporte energetico menu 3" do
+      expect((@arrayMenu3.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)).to eq(2967)
+    end
+    it "Aporte energetico menu 4" do
+      expect((@arrayMenu4.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)).to eq(1770)
+    end
+    it "Aporte energetico menu 5" do
+      expect((@arrayMenu5.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)).to eq(2089)
+    end
+  end
+  
+  describe "Pruebas comparacion aporte menus con el gastos de los pacientes" do
+    it "Prueba Menu 1" do
+      arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
+      aporteMenu1 = (@arrayMenu1.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
+      porcentajeMenu1 = aporteMenu1 * 0.1
+      arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu1 - porcentajeMenu1, aporteMenu1 + porcentajeMenu1)}
+      expect(arrayCorrespondencia.collect { |valor| valor }).to eq([false, true, false, false, false])
+    end
+    it "Prueba Menu 2" do
+      arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
+      aporteMenu2 = (@arrayMenu2.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
+      porcentajeMenu2 = aporteMenu2 * 0.1
+      arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu2 - porcentajeMenu2, aporteMenu2 + porcentajeMenu2)}
+      expect(arrayCorrespondencia.collect { |valor| valor }).to eq([false, false, false, false, true])
+    end
+    it "Prueba Menu 3" do
+      arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
+      aporteMenu3 = (@arrayMenu3.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
+      porcentajeMenu3 = aporteMenu3 * 0.1
+      arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu3 - porcentajeMenu3, aporteMenu3 + porcentajeMenu3)}
+      expect(arrayCorrespondencia.collect { |valor| valor }).to eq([true, false, true, false, false])
+    end
+    it "Prueba Menu 4" do
+      arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
+      aporteMenu4 = (@arrayMenu4.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
+      porcentajeMenu4 = aporteMenu4 * 0.1
+      arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu4 - porcentajeMenu4, aporteMenu4 + porcentajeMenu4)}
+      expect(arrayCorrespondencia.collect { |valor| valor }).to eq([false, true, false, false, false])
+    end
+    it "Prueba Menu 5" do
+      arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
+      aporteMenu5 = (@arrayMenu5.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
+      porcentajeMenu5 = aporteMenu5 * 0.1
+      arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu5 - porcentajeMenu5, aporteMenu5 + porcentajeMenu5)}
+      expect(arrayCorrespondencia.collect { |valor| valor }).to eq([false, false, false, true, false])
+    end
+  end
 end

@@ -86,6 +86,6 @@ class Paciente < Individuo
     # Calculo del gasto energetico total
     # @return [Numeric] Gasto energetico total
     def gastoEnergeticoTotal()
-        self.gastoEnergeticoBasal() + self.efectoTermogeno() + self.gastoActividadFisica()
+        (self.gastoEnergeticoBasal() + self.efectoTermogeno() + self.gastoActividadFisica()).round(2)
     end
 end

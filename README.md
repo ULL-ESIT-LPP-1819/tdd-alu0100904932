@@ -43,7 +43,7 @@
 ## Programación Funcional
 
 - [x] Calcular el gasto energético total de un paciente
-- [ ] Pruebas comparando menús y el gasto energético total
+- [x] Pruebas comparando menús y el gasto energético total
 - [x] Travis
 
 Autor: Jesús Ramos Álvarez
