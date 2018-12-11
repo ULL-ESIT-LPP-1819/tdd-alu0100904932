@@ -40,7 +40,7 @@ class Paciente < Individuo
     # @return [String] Paciente formateado
     def to_s
         s = ""
-        s += "Nombre: " + nombre + "\n" + datosAntropometricos.to_s + "\n Nivel actividad fisica: " + self.nivelActividad
+        s += "Nombre: " + nombre + "\n" + datosAntropometricos.to_s + "Nivel actividad fisica: " + self.nivelActividad
         s
     end
     
