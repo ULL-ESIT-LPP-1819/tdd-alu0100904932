@@ -36,4 +36,10 @@
 - [x] Pruebas lista valoración nutricional
 - [x] Documentación
 
+# PRÁCTICA 10
+
+## Programación Funcional
+
+- [ ] Travis
+
 Autor: Jesús Ramos Álvarez
