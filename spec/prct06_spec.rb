@@ -8,11 +8,16 @@ RSpec.describe Prct06 do
   
   before :all do
     # Info Nutricional
-    @alimento1 = InformacionNutricional.new("Alimento 1", 10, 20, 30, 40, 50, 10)
-    @alimento2 = InformacionNutricional.new("Alimento 2", 20, 10, 10, 20, 30, 20)
-    @alimento3 = InformacionNutricional.new("Alimento 3", 10, 2, 2, 10, 20, 5)
-    @alimento4 = InformacionNutricional.new("Alimento 4", 1, 30, 20, 10, 40, 15)
-    @alimento5 = InformacionNutricional.new("Alimento 5", 10, 20, 30, 40, 50, 50)
+    @alimento1 = InformacionNutricional.new("Alimento 1", 10, 20, 30, 40, 50, 10) # Desayuno
+    @alimento2 = InformacionNutricional.new("Alimento 2", 20, 10, 10, 20, 30, 20) # Desayuno
+    @alimento3 = InformacionNutricional.new("Alimento 3", 10, 2, 2, 10, 20, 5) # Desayuno
+    @alimento4 = InformacionNutricional.new("Alimento 4", 1, 30, 20, 10, 40, 15) # Almuerzo
+    @alimento5 = InformacionNutricional.new("Alimento 5", 3, 2, 3, 5, 5, 1) # Almuerzo
+    @alimento6 = InformacionNutricional.new("Alimento 6", 10, 8, 5, 3, 30, 10) # Almuerzo
+    @alimento7 = InformacionNutricional.new("Alimento 7", 20, 10, 15, 10, 50, 30) # Almuerzo
+    @alimento8 = InformacionNutricional.new("Alimento 8", 10, 3, 10, 6, 20, 3) # Cena
+    @alimento9 = InformacionNutricional.new("Alimento 9", 10, 5, 5, 2, 15, 2) # Cena
+    @alimento10 = InformacionNutricional.new("Alimento 10", 5, 2, 3, 1, 3, 1) # Cena
     # Lista doblemente enlazada
     @lista = ListaDE.new()
     @lista.insertarHead(@alimento1)
@@ -37,6 +42,14 @@ RSpec.describe Prct06 do
     @listaPacientes.insertarHead(@paciente3)
     @listaPacientes.insertarHead(@paciente4)
     @listaPacientes.insertarHead(@paciente5)
+    # Arrays de menus y pacientes
+    # Array menu = [[Desayuno], [Almuerzo], [Cena]]
+    @arrayMenu1 = [[@alimento1, @alimento3],[@alimento4, @alimento5],[@alimento8, @alimento9]]
+    @arrayMenu2 = [[@alimento1, @alimento2],[@alimento4, @alimento6],[@alimento8, @alimento10]]
+    @arrayMenu3 = [[@alimento2, @alimento3],[@alimento4, @alimento7],[@alimento9, @alimento10]]
+    @arrayMenu4 = [[@alimento1, @alimento2],[@alimento5, @alimento6],[@alimento9, @alimento10]]
+    @arrayMenu5 = [[@alimento1, @alimento3],[@alimento5, @alimento7],[@alimento8, @alimento10]]
+    @arrayPacientes = [@paciente1, @paciente2, @paciente3, @paciente4, @paciente5]
   end
   
   ################################################
@@ -93,7 +106,7 @@ RSpec.describe Prct06 do
   ##################################################
   describe "Lista doblemente enlazada ordenando sus elementos con los modulos Comparable y Enumerable" do
     it "Los elementos se ordenan por su sal" do
-      expect(@lista.sort_by { |nodo| nodo.sal }).to eq([@alimento3, @alimento1, @alimento4, @alimento2, @alimento5])
+      expect(@lista.sort_by { |nodo| nodo.sal }).to eq([@alimento5, @alimento3, @alimento1, @alimento4, @alimento2])
     end
     it "Los elementos se ordenan por su nombre" do
       expect(@lista.sort_by { |nodo| nodo.nombre }).to eq([@alimento1, @alimento2, @alimento3, @alimento4, @alimento5])
