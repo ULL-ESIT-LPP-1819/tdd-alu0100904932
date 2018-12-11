@@ -328,35 +328,35 @@ RSpec.describe Prct06 do
   end
   
   describe "Pruebas comparacion aporte menus con el gastos de los pacientes" do
-    it "Prueba Menu 1" do
+    it "Prueba Menu 1 - true en caso de que el menu sea adecuado" do
       arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
       aporteMenu1 = (@arrayMenu1.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
       porcentajeMenu1 = aporteMenu1 * 0.1
       arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu1 - porcentajeMenu1, aporteMenu1 + porcentajeMenu1)}
       expect(arrayCorrespondencia.collect { |valor| valor }).to eq([false, true, false, false, false])
     end
-    it "Prueba Menu 2" do
+    it "Prueba Menu 2 - true en caso de que el menu sea adecuado" do
       arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
       aporteMenu2 = (@arrayMenu2.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
       porcentajeMenu2 = aporteMenu2 * 0.1
       arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu2 - porcentajeMenu2, aporteMenu2 + porcentajeMenu2)}
       expect(arrayCorrespondencia.collect { |valor| valor }).to eq([false, false, false, false, true])
     end
-    it "Prueba Menu 3" do
+    it "Prueba Menu 3 - true en caso de que el menu sea adecuado" do
       arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
       aporteMenu3 = (@arrayMenu3.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
       porcentajeMenu3 = aporteMenu3 * 0.1
       arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu3 - porcentajeMenu3, aporteMenu3 + porcentajeMenu3)}
       expect(arrayCorrespondencia.collect { |valor| valor }).to eq([true, false, true, false, false])
     end
-    it "Prueba Menu 4" do
+    it "Prueba Menu 4 - true en caso de que el menu sea adecuado" do
       arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
       aporteMenu4 = (@arrayMenu4.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
       porcentajeMenu4 = aporteMenu4 * 0.1
       arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu4 - porcentajeMenu4, aporteMenu4 + porcentajeMenu4)}
       expect(arrayCorrespondencia.collect { |valor| valor }).to eq([false, true, false, false, false])
     end
-    it "Prueba Menu 5" do
+    it "Prueba Menu 5 - true en caso de que el menu sea adecuado" do
       arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
       aporteMenu5 = (@arrayMenu5.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
       porcentajeMenu5 = aporteMenu5 * 0.1
