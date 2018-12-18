@@ -38,6 +38,16 @@ RSpec.describe Prct06 do
     @paciente4 = Paciente.new("paciente4", datosAntropometricos, "moderada")
     datosAntropometricos = DatosAntropometricos.new(110.0, 1.80, 1, 41, 95.0, 93.0)
     @paciente5 = Paciente.new("paciente5", datosAntropometricos, "ligera")
+    datosAntropometricos = DatosAntropometricos.new(85.0, 1.75, 1, 41, 83.0, 80.0)
+    @paciente6 = Paciente.new("paciente6", datosAntropometricos, "moderada")
+    datosAntropometricos = DatosAntropometricos.new(85.0, 1.80, 1, 21, 82.0, 80.0)
+    @paciente7 = Paciente.new("paciente7", datosAntropometricos, "intensa")
+    datosAntropometricos = DatosAntropometricos.new(65.0, 1.65, 0, 25, 65.0, 85.0)
+    @paciente8 = Paciente.new("paciente8", datosAntropometricos, "ligera")
+    datosAntropometricos = DatosAntropometricos.new(68.0, 1.60, 0, 30, 72.0, 82.0)
+    @paciente9 = Paciente.new("paciente9", datosAntropometricos, "moderada")
+    datosAntropometricos = DatosAntropometricos.new(63.0, 1.63, 0, 25, 70.0, 90.0)
+    @paciente10 = Paciente.new("paciente10", datosAntropometricos, "ligera")
     @listaPacientes = ListaDE.new();
     @listaPacientes.insertarHead(@paciente1)
     @listaPacientes.insertarHead(@paciente2)
@@ -58,6 +68,17 @@ RSpec.describe Prct06 do
     @arrayPacientes = [@paciente1, @paciente2, @paciente3, @paciente4, @paciente5]
     # Practica 11
     @arrayMenus = [@arrayMenu1, @arrayMenu2, @arrayMenu3, @arrayMenu4, @arrayMenu5, @arrayMenu6, @arrayMenu7, @arrayMenu8, @arrayMenu9, @arrayMenu10]
+    @listaPacientes2 = ListaDE.new();
+    @listaPacientes2.insertarHead(@paciente1)
+    @listaPacientes2.insertarHead(@paciente2)
+    @listaPacientes2.insertarHead(@paciente3)
+    @listaPacientes2.insertarHead(@paciente4)
+    @listaPacientes2.insertarHead(@paciente5)
+    @listaPacientes2.insertarHead(@paciente6)
+    @listaPacientes2.insertarHead(@paciente7)
+    @listaPacientes2.insertarHead(@paciente8)
+    @listaPacientes2.insertarHead(@paciente9)
+    @listaPacientes2.insertarHead(@paciente10)
   end
   
   ################################################

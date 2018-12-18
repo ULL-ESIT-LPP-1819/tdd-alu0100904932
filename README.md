@@ -51,7 +51,7 @@
 ## Programación Funcional - Benchmarks
 
 - [x] Array Menús
-- [ ] Lista valoraciones nutricionales
+- [x] Lista valoraciones nutricionales
 - [ ] Orden con for
 - [ ] Orden con each
 - [ ] Orden con sort
