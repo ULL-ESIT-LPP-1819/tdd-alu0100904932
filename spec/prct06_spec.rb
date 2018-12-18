@@ -50,6 +50,12 @@ RSpec.describe Prct06 do
     @paciente9 = Paciente.new("paciente9", datosAntropometricos, "moderada")
     datosAntropometricos = DatosAntropometricos.new(63.0, 1.63, 0, 25, 70.0, 90.0)
     @paciente10 = Paciente.new("paciente10", datosAntropometricos, "ligera")
+    datosAntropometricos = DatosAntropometricos.new(40.0, 1.63, 0, 25, 70.0, 90.0)
+    @paciente11 = Paciente.new("paciente10", datosAntropometricos, "ligera")
+    datosAntropometricos = DatosAntropometricos.new(150.0, 1.63, 0, 25, 70.0, 90.0)
+    @paciente12 = Paciente.new("paciente10", datosAntropometricos, "ligera")
+    datosAntropometricos = DatosAntropometricos.new(100.0, 1.63, 0, 25, 70.0, 90.0)
+    @paciente13 = Paciente.new("paciente10", datosAntropometricos, "ligera")
     @listaPacientes = ListaDE.new();
     @listaPacientes.insertarHead(@paciente1)
     @listaPacientes.insertarHead(@paciente2)
@@ -144,6 +150,23 @@ RSpec.describe Prct06 do
                                       "Edad: #{@paciente1.datosAntropometricos.edad}\n" +
                                       "Cintura:  #{@paciente1.datosAntropometricos.cintura}\n" +
                                       "Cadera: #{@paciente1.datosAntropometricos.cadera}\n")
+    end
+    it "imcPopular" do
+      expect(@paciente11.datosAntropometricos.imcPopular).to eq("Bajo peso")
+    end
+    it "imcOMS" do
+      expect(@paciente11.datosAntropometricos.imcOMS).to eq("Bajo peso")
+      expect(@paciente1.datosAntropometricos.imcOMS).to eq("Sobrepeso")
+      expect(@paciente2.datosAntropometricos.imcOMS).to eq("Adecuado")
+      expect(@paciente5.datosAntropometricos.imcOMS).to eq("Obesidad grado 1")
+      expect(@paciente13.datosAntropometricos.imcOMS).to eq("Obesidad grado 2")
+      expect(@paciente12.datosAntropometricos.imcOMS).to eq("Obesidad grado 3")
+    end
+    it "Porcentaje de grasa" do
+      expect(@paciente1.datosAntropometricos.porcGrasa).to eq(23.6)
+    end
+    it "rcc" do
+      expect(@paciente1.datosAntropometricos.rcc).to eq(1.04)
     end
   end
   

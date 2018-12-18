@@ -64,22 +64,22 @@ class DatosAntropometricos
     
     # Calcula el riesgo que puede tener una persona segun su RCC
     # @return [String] Riesgo de la persona
-    def rccRiesgo
-        if @sexo == 1
-            case self.rcc
-                when 0.83..0.88 then "Bajo"
-                when 0.89..0.95 then "Moderado"
-                when 0.96..1.01 then "Alto"
-                else "Muy alto"
-            end
-        elsif @sexo == 0
-            case self.rcc
-                when 0.72..0.75 then "Bajo"
-                when 0.76..0.82 then "Moderado"
-                else "Alto"
-            end
-        end
-    end
+    # def rccRiesgo
+    #     if @sexo == 1
+    #         case self.rcc
+    #             when 0.83..0.88 then "Bajo"
+    #             when 0.89..0.95 then "Moderado"
+    #             when 0.96..1.01 then "Alto"
+    #             else "Muy alto"
+    #         end
+    #     elsif @sexo == 0
+    #         case self.rcc
+    #             when 0.72..0.75 then "Bajo"
+    #             when 0.76..0.82 then "Moderado"
+    #             else "Alto"
+    #         end
+    #     end
+    # end
     
     # Formatea los datos antropometricos de una persona en un String
     # @return [String] Datos Antropometricos formateados
