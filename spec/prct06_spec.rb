@@ -132,6 +132,21 @@ RSpec.describe Prct06 do
     end
   end
   
+  #################################
+  # Pruebas Datos Antropometricos #
+  #################################
+  
+  describe "Pruebas clase Datos Antropometricos" do
+    it "Formato de los datos antropometricos" do
+      expect(@paciente1.datosAntropometricos.to_s).to eq("Peso: #{@paciente1.datosAntropometricos.peso}\n" +
+                                      "Talla: #{@paciente1.datosAntropometricos.talla}\n" +
+                                      "Sexo: #{@paciente1.datosAntropometricos.sexo}\n" +
+                                      "Edad: #{@paciente1.datosAntropometricos.edad}\n" +
+                                      "Cintura:  #{@paciente1.datosAntropometricos.cintura}\n" +
+                                      "Cadera: #{@paciente1.datosAntropometricos.cadera}\n")
+    end
+  end
+  
   ##################################################
   # Pruebas practica 7 - Lista doblemente enlazada #
   ##################################################

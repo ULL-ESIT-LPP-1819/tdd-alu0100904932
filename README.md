@@ -58,6 +58,6 @@
 - [x] Orden con each
 - [x] Orden con sort
 - [x] Benchmark
-- [ ] Coverall
+- [x] Coverall
 
 Autor: Jesús Ramos Álvarez
