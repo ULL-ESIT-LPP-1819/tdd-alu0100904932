@@ -119,6 +119,8 @@ class ListaDE
         return ordenado
     end
     
+    # Metodo para ordenar una lista mediante each con ordenamiento por insercion
+    # @return [Array] Array ordenado
     def ordenEach ()
         ordenado = []
         each do

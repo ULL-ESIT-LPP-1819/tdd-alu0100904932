@@ -200,7 +200,15 @@ RSpec.describe Prct06 do
       expect(@lista.head).to eq(nil)
       expect(@lista.tail).to eq(nil)
     end
-    it "Se le añade el alimento 1 a una lista vacía" do
+    it "Se le añade el alimento 1 a una lista vacía por tail" do
+      @lista.insertarTail(@alimento1)
+      expect(@lista.head.value).to eq(@alimento1)
+      expect(@lista.tail.value).to eq(@alimento1)
+    end
+    it "Se extrae el alimento 1 por tail" do
+      expect(@lista.extraerTail.value).to eq(@alimento1)
+    end
+    it "Se le añade el alimento 1 a una lista vacía por head" do
       @lista.insertarHead(@alimento1)
       expect(@lista.head.value).to eq(@alimento1)
       expect(@lista.tail.value).to eq(@alimento1)
@@ -214,6 +222,11 @@ RSpec.describe Prct06 do
       @lista.insertarHead(@alimento3)
       expect(@lista.head.value).to eq(@alimento3)
       expect(@lista.tail.value).to eq(@alimento2)
+    end
+    it "Formato de la lista" do
+      expect(@lista.to_s).to eq(@alimento2.to_s + "\n" +
+                                @alimento1.to_s + "\n" +
+                                @alimento3.to_s + "\n")
     end
   end
   
