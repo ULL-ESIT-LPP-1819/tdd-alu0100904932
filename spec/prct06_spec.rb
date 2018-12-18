@@ -75,7 +75,7 @@ RSpec.describe Prct06 do
     @arrayMenu9 = [@alimento1, @alimento4, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
     @arrayMenu10 = [@alimento3, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
     @arrayPacientes = [@paciente1, @paciente2, @paciente3, @paciente4, @paciente5]
-    # Practica 11
+    # Array de 10 menus y lista de 10 pacientes 
     @arrayMenus = [@arrayMenu1, @arrayMenu2, @arrayMenu3, @arrayMenu4, @arrayMenu5, @arrayMenu6, @arrayMenu7, @arrayMenu8, @arrayMenu9, @arrayMenu10]
     @listaPacientes2 = ListaDE.new();
     @listaPacientes2.insertarHead(@paciente1)
@@ -279,21 +279,21 @@ RSpec.describe Prct06 do
       @listaPacientes.insertarHead(@paciente4)
       @listaPacientes.insertarHead(@paciente5)
     end
+  end
     
-    describe "Formato de individuo y paciente" do
-      it "to_s individuo" do
-        expect(@individuo.to_s).to eq("Nombre: individuo")
-      end
-      it "to_s paciente" do
-        expect(@paciente1.to_s).to eq("Nombre: #{@paciente1.nombre}\n" +
-                                      "Peso: #{@paciente1.datosAntropometricos.peso}\n" +
-                                      "Talla: #{@paciente1.datosAntropometricos.talla}\n" +
-                                      "Sexo: #{@paciente1.datosAntropometricos.sexo}\n" +
-                                      "Edad: #{@paciente1.datosAntropometricos.edad}\n" +
-                                      "Cintura:  #{@paciente1.datosAntropometricos.cintura}\n" +
-                                      "Cadera: #{@paciente1.datosAntropometricos.cadera}\n" +
-                                      "Nivel actividad fisica: #{@paciente1.nivelActividad}")
-      end
+  describe "Formato de individuo y paciente" do
+    it "to_s individuo" do
+      expect(@individuo.to_s).to eq("Nombre: individuo")
+    end
+    it "to_s paciente" do
+      expect(@paciente1.to_s).to eq("Nombre: #{@paciente1.nombre}\n" +
+                                    "Peso: #{@paciente1.datosAntropometricos.peso}\n" +
+                                    "Talla: #{@paciente1.datosAntropometricos.talla}\n" +
+                                    "Sexo: #{@paciente1.datosAntropometricos.sexo}\n" +
+                                    "Edad: #{@paciente1.datosAntropometricos.edad}\n" +
+                                    "Cintura:  #{@paciente1.datosAntropometricos.cintura}\n" +
+                                    "Cadera: #{@paciente1.datosAntropometricos.cadera}\n" +
+                                    "Nivel actividad fisica: #{@paciente1.nivelActividad}")
     end
   end
   
@@ -472,50 +472,69 @@ RSpec.describe Prct06 do
   # Pruebas practica 11 - Programacion Funcional - Benchmarks #
   #############################################################
   
-  Benchmark.bm do |benchmark|
-    benchmark.report ("for:") do
-      describe "Orden por for" do
-        it "La lista de pacientes se ordena usando el metodo con bucle for" do
-          arrayOrdenado = @listaPacientes2.ordenFor()
-          expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
-          #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
-        end
-        it "El array de menus se ordena usando el metodo con bucle for" do
-          arrayOrdenado = ordenForMenus(@arrayMenus)
-          expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
-          #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
-        end
-      end
+  describe "Orden por for" do
+    it "La lista de pacientes se ordena usando el metodo con bucle for" do
+      arrayOrdenado = @listaPacientes2.ordenFor()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+      #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
     end
-    
-    benchmark.report ("each:") do
-      describe "Orden por each" do
-        it "La lista de pacientes se ordena usando el metodo each" do
-          arrayOrdenado = @listaPacientes2.ordenEach()
-          expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
-          #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
-        end
-        it "El array de menus se ordena usando el metodo each" do
-          arrayOrdenado = ordenEachMenus(@arrayMenus)
-          expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
-          #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
-        end
-      end
+    it "El array de menus se ordena usando el metodo con bucle for" do
+      arrayOrdenado = ordenForMenus(@arrayMenus)
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+      #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
     end
-    
-    benchmark.report ("sort:") do
-      describe "Orden por sort" do
-        it "La lista de pacientes se ordena usando el metodo sort" do
-          arrayOrdenado = @listaPacientes2.sort()
-          expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
-          #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
+  end
+  
+  describe "Orden por each" do
+    it "La lista de pacientes se ordena usando el metodo each" do
+      arrayOrdenado = @listaPacientes2.ordenEach()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+      #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
+    end
+    it "El array de menus se ordena usando el metodo each" do
+      arrayOrdenado = ordenEachMenus(@arrayMenus)
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+      #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
+    end
+  end
+  
+  describe "Orden por sort" do
+    it "La lista de pacientes se ordena usando el metodo sort" do
+      arrayOrdenado = @listaPacientes2.sort()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+      #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
+    end
+    it "El array de menus se ordena usando el metodo sort" do
+      arrayOrdenado = @arrayMenus.sort_by { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)}
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+      #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
+    end
+  end
+  
+  describe "Pruebas benchmark" do
+    it "Pruebas benchmark" do
+      Benchmark.bm do |benchmark|
+        n = 10000
+        benchmark.report("for pacientes: ") do
+          n.times do @listaPacientes2.ordenFor() end
         end
-        it "El array de menus se ordena usando el metodo sort" do
-          arrayOrdenado = @arrayMenus.sort_by { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)}
-          expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
-          #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
+        benchmark.report("for menus: ") do
+          n.times do ordenForMenus(@arrayMenus) end
+        end
+        benchmark.report("each pacientes: ") do
+          n.times do @listaPacientes2.ordenEach() end
+        end
+        benchmark.report("each menus: ") do
+          n.times do ordenEachMenus(@arrayMenus) end
+        end
+        benchmark.report("sort pacientes: ") do
+          n.times do @listaPacientes2.sort() end
+        end
+        benchmark.report("sort menus: ") do
+          n.times do @arrayMenus.sort_by { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)} end
         end
       end
     end
   end
+  
 end
