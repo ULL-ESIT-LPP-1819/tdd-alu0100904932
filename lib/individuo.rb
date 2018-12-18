@@ -47,7 +47,7 @@ class Paciente < Individuo
     # Metodo para comparar dos pacientes segun su imc
     # @param another [Paciente] Paciente con el que comparar
     def <=> (another)
-        self.datosAntropometricos.imc <=> another.datosAntropometricos.imc
+        self.gastoEnergeticoTotal <=> another.gastoEnergeticoTotal
     end
     
     # Calculo del peso teorico ideal

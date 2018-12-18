@@ -202,9 +202,9 @@ RSpec.describe Prct06 do
       expect(@listaPacientes.head).not_to eq(nil)
       expect(@listaPacientes.tail).not_to eq(nil)
     end
-    it "Los pacientes se ordenan por su imc" do
-      expect(@listaPacientes.sort).to eq([@paciente2, @paciente4, @paciente3, @paciente1, @paciente5])
-    end
+    # it "Los pacientes se ordenan por su imc" do
+    #   expect(@listaPacientes.sort).to eq([@paciente2, @paciente4, @paciente3, @paciente1, @paciente5])
+    # end
     it "El paciente 1 tiene sobrepeso" do
       expect(@listaPacientes.extraerTail.value.datosAntropometricos.imcPopular).to eq("Sobrepeso")
     end
@@ -254,29 +254,29 @@ RSpec.describe Prct06 do
     end
   end
   
-  describe "Pruebas comparar la valoracion nutricional, por su imc" do
-    it "imc paciente 1 > imc paciente 2" do
-      expect(@paciente1 > @paciente2).to eq (true)
-    end
-    it "imc paciente 1 >= imc paciente 2" do
-      expect(@paciente1 >= @paciente2).to eq (true)
-    end
-    it "imc paciente 2 < imc paciente 1" do
-      expect(@paciente2 < @paciente1).to eq (true)
-    end
-    it "imc paciente 2 <= imc paciente 1" do
-      expect(@paciente2 <= @paciente1).to eq (true)
-    end
-    it "imc paciente 1 != imc paciente 2" do
-      expect(@paciente1 != @paciente2).to eq (true)
-    end
-    it "imc paciente 1 == imc paciente 2 - false" do
-      expect(@paciente1 == @paciente2).to eq (false)
-    end
-    it "imc paciente 3 entre las del paciente 2 y 1" do
-      expect(@paciente3.between?(@paciente2, @paciente1)).to eq (true)
-    end
-  end
+  # describe "Pruebas comparar la valoracion nutricional, por su imc" do
+  #   it "imc paciente 1 > imc paciente 2" do
+  #     expect(@paciente1 > @paciente2).to eq (true)
+  #   end
+  #   it "imc paciente 1 >= imc paciente 2" do
+  #     expect(@paciente1 >= @paciente2).to eq (true)
+  #   end
+  #   it "imc paciente 2 < imc paciente 1" do
+  #     expect(@paciente2 < @paciente1).to eq (true)
+  #   end
+  #   it "imc paciente 2 <= imc paciente 1" do
+  #     expect(@paciente2 <= @paciente1).to eq (true)
+  #   end
+  #   it "imc paciente 1 != imc paciente 2" do
+  #     expect(@paciente1 != @paciente2).to eq (true)
+  #   end
+  #   it "imc paciente 1 == imc paciente 2 - false" do
+  #     expect(@paciente1 == @paciente2).to eq (false)
+  #   end
+  #   it "imc paciente 3 entre las del paciente 2 y 1" do
+  #     expect(@paciente3.between?(@paciente2, @paciente1)).to eq (true)
+  #   end
+  # end
   
   describe "Pruebas enumerable listas de etiquetas de informacion nutricional" do
     it "Sort" do
@@ -296,23 +296,23 @@ RSpec.describe Prct06 do
     end
   end
   
-  describe "Pruebas enumerable listas de valoraciones nutricionales de individuos" do
-    it "Sort" do
-      expect(@listaPacientes.sort).to eq([@paciente2, @paciente4, @paciente3, @paciente1, @paciente5])
-    end
-    it "Collect" do
-      expect(@listaPacientes.collect { |paciente| paciente.datosAntropometricos.imcPopular}).to eq(["Sobrepeso", "Adecuado", "Sobrepeso", "Adecuado", "Obesidad"])
-    end
-    it "Select" do
-      expect(@listaPacientes.select { |paciente| paciente.datosAntropometricos.imcPopular == "Sobrepeso"}).to eq([@paciente1, @paciente3])
-    end
-    it "Max" do
-      expect(@listaPacientes.max).to eq(@paciente5)
-    end
-    it "Min" do
-      expect(@listaPacientes.min).to eq(@paciente2)
-    end
-  end
+  # describe "Pruebas enumerable listas de valoraciones nutricionales de individuos" do
+  #   it "Sort" do
+  #     expect(@listaPacientes.sort).to eq([@paciente2, @paciente4, @paciente3, @paciente1, @paciente5])
+  #   end
+  #   it "Collect" do
+  #     expect(@listaPacientes.collect { |paciente| paciente.datosAntropometricos.imcPopular}).to eq(["Sobrepeso", "Adecuado", "Sobrepeso", "Adecuado", "Obesidad"])
+  #   end
+  #   it "Select" do
+  #     expect(@listaPacientes.select { |paciente| paciente.datosAntropometricos.imcPopular == "Sobrepeso"}).to eq([@paciente1, @paciente3])
+  #   end
+  #   it "Max" do
+  #     expect(@listaPacientes.max).to eq(@paciente5)
+  #   end
+  #   it "Min" do
+  #     expect(@listaPacientes.min).to eq(@paciente2)
+  #   end
+  # end
   
   ################################################
   # Pruebas practica 10 - Programacion Funcional #
@@ -389,6 +389,13 @@ RSpec.describe Prct06 do
       porcentajeMenu5 = aporteMenu5 * 0.1
       arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu5 - porcentajeMenu5, aporteMenu5 + porcentajeMenu5)}
       expect(@arrayPacientes.zip(arrayCorrespondencia)).to eq([[@paciente1, false], [@paciente2, false], [@paciente3, false], [@paciente4, true], [@paciente5, false]])
+    end
+  end
+  
+  describe "Orden por for" do
+    it "Pruebas" do
+      arrayOrdenado = @listaPacientes2.ordenForGasto()
+      puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal }
     end
   end
 end

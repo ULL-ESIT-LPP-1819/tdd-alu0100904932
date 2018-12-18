@@ -6,12 +6,13 @@ Node = Struct.new(:value, :next, :prev)
 # @author Jesús Ramos Álvarez <alu0100904932@ull.edu.es>
 class ListaDE
     include Enumerable
-    attr_reader :head, :tail
+    attr_reader :head, :tail, :size
     
     # Initialize de la lista, establece a nil la cabeza y la cola
     def initialize()
         @head = nil
         @tail = nil
+        @size = 0
     end
     
     # Inserta un nodo por la cabeza
@@ -26,6 +27,7 @@ class ListaDE
             nodo.prev = @head
             @head = nodo
         end
+        @size+=1
     end
     
     # Inserta un nodo por la cola
@@ -40,6 +42,7 @@ class ListaDE
             nodo.next = @tail
             @tail = nodo
         end
+        @size+=1
     end
     
     # Extrae un nodo por la cabeza de la lista
@@ -53,6 +56,7 @@ class ListaDE
         else
             @head.next = nil
         end
+        @size-=1
         return extraer
     end
     
@@ -67,6 +71,7 @@ class ListaDE
         else
             @tail.prev = nil
         end
+        @size-=1
         return extraer
     end
     
@@ -88,5 +93,27 @@ class ListaDE
             |nodo| s += nodo.to_s + "\n"
         end
         s
+    end
+    
+    def ordenForGasto ()
+        ordenado = []
+        for nodo in self
+            if ordenado.empty?
+                ordenado.push(nodo)
+            else
+                indice = 0
+                while indice < ordenado.length
+                    if nodo <= ordenado[indice]
+                        ordenado.insert(indice, nodo)
+                        break
+                    elsif indice == ordenado.length-1
+                        ordenado.insert(indice+1, nodo)
+                        break
+                    end
+                    indice+=1
+                end
+            end
+        end
+        return ordenado
     end
 end
