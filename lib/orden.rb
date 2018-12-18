@@ -1,3 +1,5 @@
+# Metodo para ordenar una array mediante for con ordenamiento por insercion
+# @return [Array] Array ordenado
 def ordenForMenus (array)
     ordenado = []
     for nodo in array
@@ -22,6 +24,8 @@ def ordenForMenus (array)
     return ordenado
 end
 
+# Metodo para ordenar una array mediante each con ordenamiento por insercion
+# @return [Array] Array ordenado
 def ordenEachMenus (array)
     ordenado = []
     array.each do
