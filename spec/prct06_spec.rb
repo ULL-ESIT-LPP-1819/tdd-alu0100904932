@@ -56,6 +56,7 @@ RSpec.describe Prct06 do
     @paciente12 = Paciente.new("paciente10", datosAntropometricos, "ligera")
     datosAntropometricos = DatosAntropometricos.new(100.0, 1.63, 0, 25, 70.0, 90.0)
     @paciente13 = Paciente.new("paciente10", datosAntropometricos, "ligera")
+    @individuo = Individuo.new("individuo")
     @listaPacientes = ListaDE.new();
     @listaPacientes.insertarHead(@paciente1)
     @listaPacientes.insertarHead(@paciente2)
@@ -264,6 +265,22 @@ RSpec.describe Prct06 do
       @listaPacientes.insertarHead(@paciente3)
       @listaPacientes.insertarHead(@paciente4)
       @listaPacientes.insertarHead(@paciente5)
+    end
+    
+    describe "Formato de individuo y paciente" do
+      it "to_s individuo" do
+        expect(@individuo.to_s).to eq("Nombre: individuo")
+      end
+      it "to_s paciente" do
+        expect(@paciente1.to_s).to eq("Nombre: #{@paciente1.nombre}\n" +
+                                      "Peso: #{@paciente1.datosAntropometricos.peso}\n" +
+                                      "Talla: #{@paciente1.datosAntropometricos.talla}\n" +
+                                      "Sexo: #{@paciente1.datosAntropometricos.sexo}\n" +
+                                      "Edad: #{@paciente1.datosAntropometricos.edad}\n" +
+                                      "Cintura:  #{@paciente1.datosAntropometricos.cintura}\n" +
+                                      "Cadera: #{@paciente1.datosAntropometricos.cadera}\n" +
+                                      "Nivel actividad fisica: #{@paciente1.nivelActividad}")
+      end
     end
   end
   
