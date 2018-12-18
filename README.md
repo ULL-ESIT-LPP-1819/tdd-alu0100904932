@@ -54,7 +54,7 @@
 - [x] Lista valoraciones nutricionales
 - [x] Orden con for
 - [x] Orden con each
-- [ ] Orden con sort
+- [x] Orden con sort
 - [ ] Benchmark
 - [ ] Coverall
 

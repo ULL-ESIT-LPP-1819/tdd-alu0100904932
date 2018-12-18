@@ -422,4 +422,17 @@ RSpec.describe Prct06 do
       #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
     end
   end
+  
+  describe "Orden por sort" do
+    it "La lista de pacientes se ordena usando el metodo sort" do
+      arrayOrdenado = @listaPacientes2.sort()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+      #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
+    end
+    it "El array de menus se ordena usando el metodo sort" do
+      arrayOrdenado = @arrayMenus.sort_by { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)}
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+      #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
+    end
+  end
 end
