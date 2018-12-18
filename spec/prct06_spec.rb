@@ -55,7 +55,7 @@ RSpec.describe Prct06 do
     datosAntropometricos = DatosAntropometricos.new(150.0, 1.63, 0, 25, 70.0, 90.0)
     @paciente12 = Paciente.new("paciente10", datosAntropometricos, "ligera")
     datosAntropometricos = DatosAntropometricos.new(100.0, 1.63, 0, 25, 70.0, 90.0)
-    @paciente13 = Paciente.new("paciente10", datosAntropometricos, "ligera")
+    @paciente13 = Paciente.new("paciente10", datosAntropometricos, "reposo")
     @individuo = Individuo.new("individuo")
     @listaPacientes = ListaDE.new();
     @listaPacientes.insertarHead(@paciente1)
@@ -390,6 +390,12 @@ RSpec.describe Prct06 do
     end
     it "Calculo del gasto energetico total del paciente 5" do
       expect(@paciente5.gastoEnergeticoTotal()).to eq(2470.5)
+    end
+    it "Calculo del gasto energetico total del paciente 13" do
+      expect(@paciente13.gastoEnergeticoTotal()).to eq(1906.03)
+    end
+    it "Calculo del peso ideal paciente 1" do
+      expect(@paciente1.pesoTeoricoIdeal).to eq(74.75)
     end
   end
   
