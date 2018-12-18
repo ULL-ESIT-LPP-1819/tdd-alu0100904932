@@ -45,13 +45,19 @@ RSpec.describe Prct06 do
     @listaPacientes.insertarHead(@paciente4)
     @listaPacientes.insertarHead(@paciente5)
     # Arrays de menus y pacientes
-    # Alimentos: 1-4 Desayuno, 5-8 Almuerzo, 9-12 Cena
     @arrayMenu1 = [@alimento1, @alimento2, @alimento3, @alimento5, @alimento6, @alimento8, @alimento9]
     @arrayMenu2 = [@alimento1, @alimento2, @alimento4, @alimento6, @alimento7, @alimento8, @alimento10, @alimento11]
     @arrayMenu3 = [@alimento1, @alimento2, @alimento3, @alimento4, @alimento5, @alimento6, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
     @arrayMenu4 = [@alimento2, @alimento3, @alimento4, @alimento5, @alimento7, @alimento8, @alimento9, @alimento12]
     @arrayMenu5 = [@alimento1, @alimento3, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
+    @arrayMenu6 = [@alimento1, @alimento2, @alimento3, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
+    @arrayMenu7 = [@alimento1, @alimento3, @alimento4, @alimento5, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11]
+    @arrayMenu8 = [@alimento1, @alimento7, @alimento8, @alimento9, @alimento11, @alimento12]
+    @arrayMenu9 = [@alimento1, @alimento4, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
+    @arrayMenu10 = [@alimento3, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
     @arrayPacientes = [@paciente1, @paciente2, @paciente3, @paciente4, @paciente5]
+    # Practica 11
+    @arrayMenus = [@arrayMenu1, @arrayMenu2, @arrayMenu3, @arrayMenu4, @arrayMenu5, @arrayMenu6, @arrayMenu7, @arrayMenu8, @arrayMenu9, @arrayMenu10]
   end
   
   ################################################
@@ -287,9 +293,9 @@ RSpec.describe Prct06 do
     end
   end
   
-  ###############################################
-  # Pruebas practica 10 - Programacion Funcionl #
-  ###############################################
+  ################################################
+  # Pruebas practica 10 - Programacion Funcional #
+  ################################################
   
   describe "Pruebas nuevo metodo clase Paciente" do
     it "Calculo del gasto energetico total del paciente 1" do
@@ -329,8 +335,8 @@ RSpec.describe Prct06 do
   
   describe "Pruebas comparacion aporte menus con el gastos de los pacientes" do
     it "Prueba Menu 1 - true en caso de que el menu sea adecuado" do
-      arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
       aporteMenu1 = (@arrayMenu1.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)
+      arrayGastos = @arrayPacientes.collect { |paciente| paciente.gastoEnergeticoTotal }
       porcentajeMenu1 = aporteMenu1 * 0.1
       arrayCorrespondencia = arrayGastos.collect { |gastoEnergetico| gastoEnergetico.between?(aporteMenu1 - porcentajeMenu1, aporteMenu1 + porcentajeMenu1)}
       expect(@arrayPacientes.zip(arrayCorrespondencia)).to eq([[@paciente1, false], [@paciente2, true], [@paciente3, false], [@paciente4, false], [@paciente5, false]])

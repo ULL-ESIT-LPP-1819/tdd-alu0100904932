@@ -46,4 +46,16 @@
 - [x] Pruebas comparando menús y el gasto energético total
 - [x] Travis
 
+# PRÁCTICA 11
+
+## Programación Funcional - Benchmarks
+
+- [x] Array Menús
+- [ ] Lista valoraciones nutricionales
+- [ ] Orden con for
+- [ ] Orden con each
+- [ ] Orden con sort
+- [ ] Benchmark
+- [ ] Coverall
+
 Autor: Jesús Ramos Álvarez
