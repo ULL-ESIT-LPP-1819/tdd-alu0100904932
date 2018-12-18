@@ -53,7 +53,7 @@
 - [x] Array Menús
 - [x] Lista valoraciones nutricionales
 - [x] Orden con for
-- [ ] Orden con each
+- [x] Orden con each
 - [ ] Orden con sort
 - [ ] Benchmark
 - [ ] Coverall

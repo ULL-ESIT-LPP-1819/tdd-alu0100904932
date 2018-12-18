@@ -393,6 +393,10 @@ RSpec.describe Prct06 do
     end
   end
   
+  #############################################################
+  # Pruebas practica 11 - Programacion Funcional - Benchmarks #
+  #############################################################
+  
   describe "Orden por for" do
     it "La lista de pacientes se ordena usando el metodo con bucle for" do
       arrayOrdenado = @listaPacientes2.ordenFor()
@@ -401,6 +405,19 @@ RSpec.describe Prct06 do
     end
     it "El array de menus se ordena usando el metodo con bucle for" do
       arrayOrdenado = ordenForMenus(@arrayMenus)
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+      #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
+    end
+  end
+  
+  describe "Orden por each" do
+    it "La lista de pacientes se ordena usando el metodo each" do
+      arrayOrdenado = @listaPacientes2.ordenEach()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+      #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
+    end
+    it "El array de menus se ordena usando el metodo each" do
+      arrayOrdenado = ordenEachMenus(@arrayMenus)
       expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
       #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
     end

@@ -118,4 +118,27 @@ class ListaDE
         end
         return ordenado
     end
+    
+    def ordenEach ()
+        ordenado = []
+        each do
+            |nodo|
+            if ordenado.empty?
+                ordenado.push(nodo)
+            else
+                indice = 0
+                while indice < ordenado.length
+                    if nodo <= ordenado[indice]
+                        ordenado.insert(indice, nodo)
+                        break
+                    elsif indice == ordenado.length-1
+                        ordenado.insert(indice+1, nodo)
+                        break
+                    end
+                    indice+=1
+                end
+            end
+        end
+        return ordenado
+    end
 end
