@@ -95,7 +95,9 @@ class ListaDE
         s
     end
     
-    def ordenForGasto ()
+    # Metodo para ordenar una lista mediante un bucle for con ordenamiento por insercion
+    # @return [Array] Array ordenado
+    def ordenFor ()
         ordenado = []
         for nodo in self
             if ordenado.empty?

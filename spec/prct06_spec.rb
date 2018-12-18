@@ -3,6 +3,7 @@ require 'prct06'
 require 'listaDE'
 require 'individuo'
 require 'DatosAntropometricos'
+require 'orden'
 
 RSpec.describe Prct06 do
   
@@ -393,9 +394,15 @@ RSpec.describe Prct06 do
   end
   
   describe "Orden por for" do
-    it "Pruebas" do
-      arrayOrdenado = @listaPacientes2.ordenForGasto()
-      puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal }
+    it "La lista de pacientes se ordena usando el metodo con bucle for" do
+      arrayOrdenado = @listaPacientes2.ordenFor()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+      #puts arrayOrdenado.collect { |paciente| paciente.gastoEnergeticoTotal}
+    end
+    it "El array de menus se ordena usando el metodo con bucle for" do
+      arrayOrdenado = ordenForMenus(@arrayMenus)
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+      #puts arrayOrdenado.collect { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+) }
     end
   end
 end
